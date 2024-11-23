@@ -18,7 +18,7 @@ const Quiz: React.FC<QuizProps> = ({
   <Box
     sx={{
       flex: 1,
-      minWidth: { lg: 350 },
+      minWidth: { xl: 350 },
       border: 1,
       borderColor: cyan[900],
       p: 2,

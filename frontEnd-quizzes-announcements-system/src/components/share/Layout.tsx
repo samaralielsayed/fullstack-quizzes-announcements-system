@@ -1,11 +1,5 @@
 import React, { useState } from "react";
-import {
-  Box,
-  CssBaseline,
-  styled,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
+import { Box, styled, useMediaQuery, useTheme } from "@mui/material";
 import Header from "./Header";
 import DrawerComponent from "./DrawerComponent";
 import { useLocation } from "react-router-dom";
