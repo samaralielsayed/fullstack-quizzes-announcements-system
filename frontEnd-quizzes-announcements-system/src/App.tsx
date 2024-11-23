@@ -29,7 +29,7 @@ const App: React.FC = () => {
 
   const handleLogin = () => {
     dispatch(login("samarAli"));
-    navigate(`${currentLang}/dashboard`);
+    navigate(`en/dashboard`);
   };
 
   const handleLogout = () => {
