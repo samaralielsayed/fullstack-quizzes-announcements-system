@@ -34,6 +34,8 @@ const AnnouncementPage = () => {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
+            flexDirection: { xs: "column-reverse", md: "row" },
+            gap: { xs: 2, md: 0 },
             mb: 5,
           }}
         >
