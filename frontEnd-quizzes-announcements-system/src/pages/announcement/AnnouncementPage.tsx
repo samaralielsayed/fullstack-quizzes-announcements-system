@@ -9,7 +9,7 @@ import Box from "@mui/material/Box/Box";
 import Button from "@mui/material/Button/Button";
 import ControlPointIcon from "@mui/icons-material/ControlPoint";
 import cyan from "@mui/material/colors/cyan";
-import DeleteDialog from "../../components/quiz/DeleteDialog";
+import DeleteDialog from "../../components/share/DeleteDialog";
 const AnnouncementPage = () => {
   const {
     isLoading,
@@ -61,7 +61,6 @@ const AnnouncementPage = () => {
               userName={anouncement.userName}
               image={anouncement.image}
               title={anouncement.title}
-              createdOn={anouncement.createdOn}
               description={anouncement.description}
               setAnnouncementId={setAnnouncementId}
               setOpen={setOpenEdit}

@@ -9,7 +9,7 @@ import { cyan } from "@mui/material/colors";
 import Box from "@mui/material/Box/Box";
 import { useState } from "react";
 import AddQuizDialog from "../../components/quiz/AddQuizDialog";
-import DeleteDialog from "../../components/quiz/DeleteDialog";
+import DeleteDialog from "../../components/share/DeleteDialog";
 
 const QuizPage = () => {
   const {

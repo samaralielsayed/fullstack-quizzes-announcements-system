@@ -9,7 +9,6 @@ import Typography from "@mui/material/Typography/Typography";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
 import { Delete } from "@mui/icons-material";
 import { AnnouncementProps } from "../../interfaces/AnnouncementProps";
-import { Button } from "@mui/material";
 
 const Announcement: React.FC<AnnouncementProps> = ({
   _id,
@@ -18,7 +17,6 @@ const Announcement: React.FC<AnnouncementProps> = ({
   title,
   image,
   description,
-  createdOn,
   setAnnouncementId,
   setOpen,
   setOpenDelete,

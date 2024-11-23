@@ -4,7 +4,6 @@ export interface AnnouncementProps {
   userName: string;
   image: string;
   description: string;
-  createdOn: string;
   title: string;
   setAnnouncementId: React.Dispatch<React.SetStateAction<string>>;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
