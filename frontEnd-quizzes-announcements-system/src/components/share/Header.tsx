@@ -11,6 +11,7 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import { styled } from "@mui/material/styles";
 import { cyan, grey, red } from "@mui/material/colors";
+import LanguageToggle from "./LanguageToggle";
 
 const drawerWidth = 280;
 
@@ -90,11 +91,12 @@ const Header: React.FC<HeaderProps> = ({
         <Box sx={{ flexGrow: 1 }} />
         <Button
           variant="contained"
-          sx={{ backgroundColor: red[900], mx: 2 }}
+          sx={{ backgroundColor: red[900] }}
           onClick={handleLogout}
         >
           Logout
         </Button>
+        <LanguageToggle />
 
         <IconButton sx={{ p: 0 }}>
           <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />

@@ -5,15 +5,18 @@ import WavingHandIcon from "@mui/icons-material/WavingHand";
 import LanguageIcon from "@mui/icons-material/Language";
 import LanguageToggle from "../components/share/LanguageToggle";
 import { LanguageContext } from "../providers/LanguageContext";
+import { useLocation } from "react-router-dom";
 interface HomeProps {
   handleLogin: () => void;
 }
-
 const Home: React.FC<HomeProps> = ({ handleLogin }) => {
   const { t } = useContext(LanguageContext);
+  const location = useLocation();
+  const currentLang = location.pathname.split("/")[1] || "en";
+  const langDirection = currentLang === "ar" ? "rtl" : "ltr";
   return (
     <>
-      <AppBar position="static" elevation={0}>
+      <AppBar position="static" elevation={0} sx={{ direction: langDirection }}>
         <Box
           sx={{
             width: "100%",
@@ -43,6 +46,7 @@ const Home: React.FC<HomeProps> = ({ handleLogin }) => {
 
       <Box
         sx={{
+          direction: langDirection,
           backgroundColor: "background.default",
           width: "100%",
           height: "calc(100vh - 80px)",
@@ -73,6 +77,7 @@ const Home: React.FC<HomeProps> = ({ handleLogin }) => {
             borderColor: cyan[900],
             fontWeight: "bold",
             border: 2,
+
             width: "150px",
             "&:hover": {
               backgroundColor: cyan[900],

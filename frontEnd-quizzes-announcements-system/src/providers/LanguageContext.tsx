@@ -23,7 +23,7 @@ const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
     const savedLang = localStorage.getItem("lang") || "en";
     if (savedLang !== i18n.language) {
       i18n.changeLanguage(savedLang);
-      document.dir = ltrLangs.includes(savedLang) ? "ltr" : "rtl";
+      // document.dir = ltrLangs.includes(savedLang) ? "ltr" : "rtl";
     }
   }, [i18n.language, ltrLangs]);
 
@@ -33,7 +33,7 @@ const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
       toggleLanguage: (lang: string) => {
         localStorage.setItem("lang", lang);
         i18n.changeLanguage(lang);
-        document.dir = ltrLangs.includes(lang) ? "ltr" : "rtl";
+        // document.dir = ltrLangs.includes(lang) ? "ltr" : "rtl";
       },
     }),
     [t, i18n]
