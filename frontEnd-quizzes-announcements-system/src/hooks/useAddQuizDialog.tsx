@@ -5,6 +5,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { UseAddQuizDialogProps } from "../interfaces/UseAddQuizDialogProps";
 import { useEffect } from "react";
+import axiosInstance from "../axiosInstance";
 
 const useAddQuizDialog = ({
   handleClose,
@@ -38,8 +39,8 @@ const useAddQuizDialog = ({
     if (ID) {
       const fetchQuizData = async () => {
         try {
-          const response = await axios.get(
-            `http://localhost:3000/api/v1/quizzes/${ID}`
+          const response = await axiosInstance.get(
+            `/quizzes/${ID}`
           );
           const quizData = response.data.data;
           formik.setValues({
@@ -58,7 +59,7 @@ const useAddQuizDialog = ({
 
   const handleAddQuiz = async (values: typeof formik.values) => {
     try {
-      await axios.post("http://localhost:3000/api/v1/quizzes", values);
+      await axiosInstance.post("/quizzes", values);
       toast.success("Quiz added successfully");
       setRender((prevRender) => !prevRender);
       handleClose();
@@ -69,7 +70,7 @@ const useAddQuizDialog = ({
 
   const handleUpdateQuiz = async (values: typeof formik.values) => {
     try {
-      await axios.patch(`http://localhost:3000/api/v1/quizzes/${ID}`, values);
+      await axiosInstance.patch(`/quizzes/${ID}`, values);
       toast.success("Quiz updated successfully");
       setRender((prevRender) => !prevRender);
       handleClose();

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { QuizProps } from "../interfaces/QuizProps";
 import axios from "axios";
 import { toast } from "react-toastify";
+import axiosInstance from "../axiosInstance";
 
 const useQuiz = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -13,7 +14,7 @@ const useQuiz = () => {
   async function getAllQuizzes() {
     setIsLoading(true);
     try {
-      const response = await axios.get("http://localhost:3000/api/v1/quizzes");
+      const response = await axiosInstance.get("/quizzes");
       if (response.status === 200) {
         setQuizData(response.data.data);
       }
@@ -26,7 +27,7 @@ const useQuiz = () => {
   const handleDeleteQuiz = async (quizId: string) => {
     setIsLoading(true);
     try {
-      await axios.delete(`http://localhost:3000/api/v1/quizzes/${quizId}`);
+      await axiosInstance.delete(`/quizzes/${quizId}`);
       toast.success("Quiz deleted successfully");
       setRender((prevRender) => !prevRender);
       setIsLoading(false);

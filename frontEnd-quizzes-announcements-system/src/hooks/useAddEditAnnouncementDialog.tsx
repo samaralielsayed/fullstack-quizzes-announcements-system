@@ -4,6 +4,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { UseAddQuizDialogProps } from "../interfaces/UseAddQuizDialogProps";
 import { useEffect, useState } from "react";
+import axiosInstance from "../axiosInstance";
 
 const useAddEditAnnouncementDialog = ({
   handleClose,
@@ -70,9 +71,7 @@ const useAddEditAnnouncementDialog = ({
     if (ID) {
       const fetchAnnouncementData = async () => {
         try {
-          const response = await axios.get(
-            `http://localhost:3000/api/v1/announcements/${ID}`
-          );
+          const response = await axiosInstance.get(`/announcements/${ID}`);
           const announcementData = response.data.data;
           formik.setValues({
             name: announcementData.name,
@@ -93,7 +92,7 @@ const useAddEditAnnouncementDialog = ({
   const handleAddAnnouncement = async (formData: FormData) => {
     try {
       console.log("hhhh");
-      await axios.post("http://localhost:3000/api/v1/announcements", formData, {
+      await axiosInstance.post("/announcements", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -109,8 +108,8 @@ const useAddEditAnnouncementDialog = ({
 
   const handleUpdateAnnouncement = async (formData: FormData) => {
     try {
-      await axios.patch(
-        `http://localhost:3000/api/v1/announcements/${ID}`,
+      await axiosInstance.patch(
+        `/announcements/${ID}`,
         formData,
         {
           headers: {

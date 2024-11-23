@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { AnnouncementProps } from "../interfaces/AnnouncementProps";
 import axios from "axios";
 import { toast } from "react-toastify";
+import axiosInstance from "../axiosInstance";
 
 const useAnnouncement = () => {
   const [render, setRender] = useState(false);
@@ -15,8 +16,8 @@ const useAnnouncement = () => {
   async function getAllAnouncements() {
     setIsLoading(true);
     try {
-      const response = await axios.get(
-        "http://localhost:3000/api/v1/announcements"
+      const response = await axiosInstance.get(
+        "/announcements"
       );
       if (response.status === 200) {
         setAnouncementData(response.data.data);
@@ -42,8 +43,8 @@ const useAnnouncement = () => {
   const handleDeleteAnnouncement = async (quizId: string) => {
     setIsLoading(true);
     try {
-      await axios.delete(
-        `http://localhost:3000/api/v1/announcements/${quizId}`
+      await axiosInstance.delete(
+        `/announcements/${quizId}`
       );
       toast.success("Announcement deleted successfully");
       setRender((prevRender) => !prevRender);
