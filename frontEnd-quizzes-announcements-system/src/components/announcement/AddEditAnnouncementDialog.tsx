@@ -83,7 +83,7 @@ const AddEditAnnouncementDialog: React.FC<AddDataDialogProps> = ({
                 </p>
               )}
             </Box>
-            {ID && <Avatar src={imagePreview}></Avatar>}
+            {imagePreview && <Avatar src={imagePreview}></Avatar>}
           </Box>
         </DialogContent>
         <DialogActions>

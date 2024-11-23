@@ -19,6 +19,7 @@ import { AppDispatch } from "./store";
 import { login, logout } from "./slices/authSlice";
 import PrivateRoute from "./privateRoute/PrivateRoute";
 import PublicRoute from "./privateRoute/PublicRoute";
+import NotFound from "./components/share/NotFound";
 
 const App: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -80,6 +81,8 @@ const App: React.FC = () => {
               </PrivateRoute>
             }
           />
+          <Route path=":lang/not-found" element={<NotFound />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </LanguageProvider>
     </I18nextProvider>

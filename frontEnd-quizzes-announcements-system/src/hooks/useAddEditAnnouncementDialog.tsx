@@ -108,15 +108,11 @@ const useAddEditAnnouncementDialog = ({
 
   const handleUpdateAnnouncement = async (formData: FormData) => {
     try {
-      await axiosInstance.patch(
-        `/announcements/${ID}`,
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      await axiosInstance.patch(`/announcements/${ID}`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
       toast.success("Announcement updated successfully");
       setRender((prevRender) => !prevRender);
       handleClose();
@@ -155,15 +151,6 @@ const useAddEditAnnouncementDialog = ({
       helperText: formik.touched.userName && formik.errors.userName,
     },
     {
-      label: "Description",
-      name: "description",
-      value: formik.values.description,
-      onChange: formik.handleChange,
-      onBlur: formik.handleBlur,
-      error: formik.touched.description && Boolean(formik.errors.description),
-      helperText: formik.touched.description && formik.errors.description,
-    },
-    {
       label: "Title",
       name: "title",
       value: formik.values.title,
@@ -171,6 +158,15 @@ const useAddEditAnnouncementDialog = ({
       onBlur: formik.handleBlur,
       error: formik.touched.title && Boolean(formik.errors.title),
       helperText: formik.touched.title && formik.errors.title,
+    },
+    {
+      label: "Description",
+      name: "description",
+      value: formik.values.description,
+      onChange: formik.handleChange,
+      onBlur: formik.handleBlur,
+      error: formik.touched.description && Boolean(formik.errors.description),
+      helperText: formik.touched.description && formik.errors.description,
     },
   ];
 
