@@ -1,0 +1,11 @@
+{
+  "ToggleLanguage": "Hello World!",
+  "english": " English",
+  "arabic": "Arabic",
+
+  "home": {
+    "title": "MultiLingual App",
+    "welcomeBack": "Welcome back",
+    "login": "Login"
+  }
+}
