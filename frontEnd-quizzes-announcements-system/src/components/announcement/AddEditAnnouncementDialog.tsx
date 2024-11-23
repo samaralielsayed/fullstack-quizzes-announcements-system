@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
@@ -41,7 +41,10 @@ const AddEditAnnouncementDialog: React.FC<AddDataDialogProps> = ({
   return (
     <Dialog open={open} onClose={handleClose}>
       <form onSubmit={formik.handleSubmit}>
-        <DialogTitle>Add New Quiz</DialogTitle>
+        <DialogTitle>
+          {" "}
+          {ID ? "Edit Announcement" : "Add New Announcement"}
+        </DialogTitle>
         <DialogContent>
           {inputs.map((input) => (
             <InputField

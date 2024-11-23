@@ -8,7 +8,6 @@ const useAnnouncement = () => {
   const [render, setRender] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [openDelete, setOpenDelete] = useState(false);
-  const handleOpenDelete = () => setOpenDelete(true);
   const handleCloseDelete = () => setOpenDelete(false);
   const [anouncementData, setAnouncementData] = useState<AnnouncementProps[]>(
     []
@@ -16,9 +15,7 @@ const useAnnouncement = () => {
   async function getAllAnouncements() {
     setIsLoading(true);
     try {
-      const response = await axiosInstance.get(
-        "/announcements"
-      );
+      const response = await axiosInstance.get("/announcements");
       if (response.status === 200) {
         setAnouncementData(response.data.data);
       }
@@ -43,9 +40,7 @@ const useAnnouncement = () => {
   const handleDeleteAnnouncement = async (quizId: string) => {
     setIsLoading(true);
     try {
-      await axiosInstance.delete(
-        `/announcements/${quizId}`
-      );
+      await axiosInstance.delete(`/announcements/${quizId}`);
       toast.success("Announcement deleted successfully");
       setRender((prevRender) => !prevRender);
       setIsLoading(false);
